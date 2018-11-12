@@ -51,3 +51,11 @@ ClassArgs = {
         'algorithm_name': 'anneal'
     }
 }
+
+AdvisorModuleName = {
+    'Hyperband': 'nni.hyperband_advisor.hyperband_advisor'
+}
+
+AdvisorClassName = {
+    'Hyperband': 'Hyperband'
+}

@@ -60,6 +60,15 @@ export namespace ValidationSchemas {
             searchSpace: joi.string().required(),
             maxExecDuration: joi.number().min(0).required(),
             multiPhase: joi.boolean(),
+            advisor: joi.object({
+                builtinAdvisorName: joi.string().valid('Hyperband'),
+                codeDir: joi.string(),
+                classFileName: joi.string(),
+                className: joi.string(),
+                classArgs:joi.any(),
+                gpuNum: joi.number().min(0),
+                checkpointDir: joi.string()
+            }),
             tuner: joi.object({
                 builtinTunerName: joi.string().valid('TPE', 'Random', 'Anneal', 'Evolution', 'SMAC', 'BatchTuner'),
                 codeDir: joi.string(),
@@ -68,7 +77,7 @@ export namespace ValidationSchemas {
                 classArgs: joi.any(),
                 gpuNum: joi.number().min(0),
                 checkpointDir: joi.string()
-            }).required(),
+            }),
             assessor: joi.object({
                 builtinAssessorName: joi.string().valid('Medianstop'),
                 codeDir: joi.string(),
